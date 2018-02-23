@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Montreal Neuroscience Network</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="mtlNet2.css">
+	<link rel="icon" href="data/nfs.ico">
+</head>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="index.html" class="brand-logo center"><span id="sfn-title">Society <span>for</span> Neuroscience</span> Montreal Chapter</a>
+		<a href="#" data-activates="filters" class="button"><i class="material-icons">search</i></a>
+		<ul id="filters" class="side-nav">
+				<li><h4>Filters</h4></li>
+				<li class="search">
+					<div class="search=wrapper card">
+						<input id="search">
+						<i class="material-icons">search</i>
+						<div class="search-results"></div>
+					</div>
+				</li>
+		</ul>
+	</div>
+</nav>
+
+
+<body>
+
+<div id=graph-container>
+	<div id="sigma-graph">
+		<!--This is where the graph goes-->
+	</div>
+</div>
+
+</body>
+
+<footer class="footer">
+	<div class="container">
+		<span>This is a BETA release</span>
+	</div>
+</footer>
+
+<!-- MATERIALIZE -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- START SIGMA IMPORTS -->
+<script src="lib/sigmajs/src/sigma.core.js"></script>
+<script src="lib/sigmajs/src/conrad.js"></script>
+<script src="lib/sigmajs/src/utils/sigma.utils.js"></script>
+<script src="lib/sigmajs/src/utils/sigma.polyfills.js"></script>
+<script src="lib/sigmajs/src/sigma.settings.js"></script>
+<script src="lib/sigmajs/src/classes/sigma.classes.dispatcher.js"></script>
+<script src="lib/sigmajs/src/classes/sigma.classes.configurable.js"></script>
+<script src="lib/sigmajs/src/classes/sigma.classes.graph.js"></script>
+<script src="lib/sigmajs/src/classes/sigma.classes.camera.js"></script>
+<script src="lib/sigmajs/src/classes/sigma.classes.quad.js"></script>
+<script src="lib/sigmajs/src/classes/sigma.classes.edgequad.js"></script>
+<script src="lib/sigmajs/src/captors/sigma.captors.mouse.js"></script>
+<script src="lib/sigmajs/src/captors/sigma.captors.touch.js"></script>
+<script src="lib/sigmajs/src/renderers/sigma.renderers.canvas.js"></script>
+<script src="lib/sigmajs/src/renderers/sigma.renderers.webgl.js"></script>
+<script src="lib/sigmajs/src/renderers/sigma.renderers.svg.js"></script>
+<script src="lib/sigmajs/src/renderers/sigma.renderers.def.js"></script>
+<script src="lib/sigmajs/src/renderers/webgl/sigma.webgl.nodes.def.js"></script>
+<script src="lib/sigmajs/src/renderers/webgl/sigma.webgl.nodes.fast.js"></script>
+<script src="lib/sigmajs/src/renderers/webgl/sigma.webgl.edges.def.js"></script>
+<script src="lib/sigmajs/src/renderers/webgl/sigma.webgl.edges.fast.js"></script>
+<script src="lib/sigmajs/src/renderers/webgl/sigma.webgl.edges.arrow.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.labels.def.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.hovers.def.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.nodes.def.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.edges.def.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.edges.curve.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.edges.arrow.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.edges.curvedArrow.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.edgehovers.def.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.edgehovers.curve.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.edgehovers.arrow.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js"></script>
+<script src="lib/sigmajs/src/renderers/canvas/sigma.canvas.extremities.def.js"></script>
+<script src="lib/sigmajs/src/renderers/svg/sigma.svg.utils.js"></script>
+<script src="lib/sigmajs/src/renderers/svg/sigma.svg.nodes.def.js"></script>
+<script src="lib/sigmajs/src/renderers/svg/sigma.svg.edges.def.js"></script>
+<script src="lib/sigmajs/src/renderers/svg/sigma.svg.edges.curve.js"></script>
+<script src="lib/sigmajs/src/renderers/svg/sigma.svg.labels.def.js"></script>
+<script src="lib/sigmajs/src/renderers/svg/sigma.svg.hovers.def.js"></script>
+<script src="lib/sigmajs/src/middlewares/sigma.middlewares.rescale.js"></script>
+<script src="lib/sigmajs/src/middlewares/sigma.middlewares.copy.js"></script>
+<script src="lib/sigmajs/src/misc/sigma.misc.animation.js"></script>
+<script src="lib/sigmajs/src/misc/sigma.misc.bindEvents.js"></script>
+<script src="lib/sigmajs/src/misc/sigma.misc.bindDOMEvents.js"></script>
+<script src="lib/sigmajs/src/misc/sigma.misc.drawHovers.js"></script>
+<!-- END SIGMA IMPORTS -->
+<script src="libsigmajs/plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
+<script src="libsigmajs/plugins/sigma.plugins.filter/sigma.plugins.filter.js"></script>
+<script src="libsigmajs/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js"></script>
+
+<script>
+
+	//$('#instruction-modal').modal('show');
+	$(".button").sideNav();
+
+	var filter, dragListener;
+	window.s = new sigma({ 
+		renderers: [{
+			container: "sigma-graph", 
+			type: "canvas"
+		}],
+		settings: {} 
+	});
+
+	function updatePane(graph, filter) {
+		// Node category filter
+		categories = {};
+		graph.nodes().forEach(function(n) {
+			var institution = n.affil;
+			switch(institution.toString()) {
+				case "McGill": 
+					n.color = "#f00000"; // Red
+					break;
+					case "UdeM":
+					n.color = "#00008b"; // Dark blue
+					break;
+					case "Concordia":
+					n.color = "#ff8c00"; // Yellow
+					break;
+					case "ETS":
+					n.color = "#8b0000"; // Dark red
+					break;
+					case "Polytechnique":
+					n.color = "#b03060"; // Maroon
+					break;
+					case "HEC":
+					n.color = "#32cd32"; // Lime green
+					break;
+					case "UQAM":
+					n.color = "#27408b"; // Royal blue
+					break;
+					case "QC":
+					n.color = "#548b54"; // Pale green
+					break;
+					case "INRS":
+					n.color = "#ff4500"; // Orange
+					break;
+					default:
+					n.color = "#ff00ff";
+				}
+				categories[institution] = true;
+			})
+
+		$.each(categories, function(institution) {
+			if (institution.split(",").length == 1) {
+				$("#affilSelect")
+				.append($("<option></option")
+					.attr("value", institution)
+					.text(institution));	
+			}
+		});
+
+		graph.edges().forEach(function(e) {
+			e.color = "rgba(32,32,32,0.1)";
+		});	
+
+	}
+
+	sigma.parsers.json("data/neural.json", function(graph) {
+		// Read JSON file
+		s.graph.read(graph);
+		// Initialize the Filter API
+		filter = new sigma.plugins.filter(s);
+		// Initialize the dragNodes plugin:
+		dragListener = new sigma.plugins.dragNodes(s, s.renderers[0]);
+
+		// UI updates
+		updatePane(s.graph, filter);
+		s.refresh();
+
+		function applyCategoryFilter(e) {
+			var myAffil = e.target[e.target.selectedIndex].value;
+			filter
+			.undo("affilSelect")
+			.nodesBy(function(n) {
+				return !myAffil.length || n.affil.indexOf(myAffil) > -1
+			}, "affilSelect")
+			.apply();
+			
+		}
+
+		function applyNameSearch(myName) {
+			if (myName.length > 1) {
+				if (myName.includes(" ")) {
+					// Multiple names
+				} else {
+					filter
+					.undo("nameSearch1", "nameSearch2")
+					.edgesBy(function(e) {
+						return e.source.toString().includes(myName) 
+						|| e.source.toString().includes(myName);
+					}, "nameSearch1")
+					//.nodesBy(function(n) {
+					//	return n.attrs.includes(myName)
+					//		|| n.label.includes(myName);
+					//}, "nameSearch2")
+					.apply();
+				}
+				applyColor(s.graph.edges(), "#555");
+			} else {
+				filter.undo();
+				applyColor(s.graph.edges(), "rgba(32,32,32,0.1)");
+			}
+			s.refresh();
+		}
+
+		function applyColor(elements, color) {
+			elements.forEach(function(e) {
+				e.color = color;
+			});	
+		}
+
+		$("#affilSelect").on("change", applyCategoryFilter);
+		$("#nameSearch").on("keyup keypress", function(e) {
+			var keyCode = e.keyCode || e.which;
+			if (keyCode === 13) {
+				e.preventDefault();
+			}
+			var myName = $("#nameSearch").val();
+			applyNameSearch(myName);
+		});
+	});
+</script>
+
+</html>

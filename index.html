@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="Chianyu Liu">
+		<link rel="icon" href="data/sfn.ico">
+
+		<title>SFN: Montreal</title>	
+		
+		<link href="http://fonts.googleapis.com/css?family=Lato:300,700" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+		<link rel="stylesheet" href="index.css">
+	</head>
+
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo center"><span id="sfn-title">Society <span>for</span> Neuroscience</span> Montreal Chapter</a>
+		</div>
+	</nav>
+
+	<body>
+
+		<div class="container">
+			<p>Welcome!<a href="sfn.org">Society for Neuroscience (SfN)</a> is a profession society for researchers whose interests lies in the study of the brain and nervous system. Come and explore the society for neuroscience research community in Montreal!</p>
+
+			<div id=netGraph> 
+				<img src="data/netGraph.jpg" alt="Network Graph">
+			</div>
+
+			<div class=my-btn-group-vertical>
+				<a href="mtlNet2.html" class="btn btn-lg btn-primary">See your network (beta)!</a>
+				<a class="waves-effect waves-light btn modal-trigger" href="#contact-modal">Contact Us</a>
+				<!--<a href="mailto:qianyu.liu@mail.mcgill.ca" class="btn btn-lg btn-primary">Contact Us</a>-->
+			</div>
+			
+			<div id="contact-modal" class="modal modal-fixed-footer">
+				<div class="modal-content">
+					<h4>Contact Us</h4>
+					<p>Words about things</p>
+					<div class="row">
+						<form class="col s12">
+							<div class="row">
+								<div class="input-field col s12">
+									<i class="material-icons prefix">account_box</i>
+									<input id="contact-name" type="text" class="validate">
+									<label for="contact-name">Full Name</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<i class="material-icons prefix">email</i>
+									<input id="contact-email" type="email" class="validate">
+									<label for="contact-email">Email</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<i class="material-icons prefix">mode_edit</i>
+									<textarea id="contact-message" class="materialize-textarea"></textarea>
+									<label for="contact-message">Message</label>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Send</a>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<div class="container">
+				<span>This is a BETA release</span>
+			</div>
+		</footer>
+
+		<!-- MATERIALIZE -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<script>
+			$('.modal').modal();
+			$('#message').val('New Text');
+			$('#textarea1').trigger('autoresize');
+		</script>
+	</body>
+</html>
