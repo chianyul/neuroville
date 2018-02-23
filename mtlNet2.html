@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Montreal Neuroscience Network</title>
+	<title>Neurovill Montreal Neuroscience Network</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<link rel="stylesheet" href="mtlNet2.css">
-	<link rel="icon" href="data/nfs.ico">
+	<link rel="icon" href="data/sfn.ico">
+
+	<!-- MATERIALIZE -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
-<nav>
-	<div class="nav-wrapper">
-		<a href="index.html" class="brand-logo center"><span id="sfn-title">Society <span>for</span> Neuroscience</span> Montreal Chapter</a>
-		<a href="#" data-activates="filters" class="button"><i class="material-icons">search</i></a>
-		<ul id="filters" class="side-nav">
-				<li><h4>Filters</h4></li>
-				<li class="search">
-					<div class="search=wrapper card">
-						<input id="search">
-						<i class="material-icons">search</i>
-						<div class="search-results"></div>
-					</div>
-				</li>
-		</ul>
-	</div>
-</nav>
-
 
 <body>
 
-<div id=graph-container>
-	<div id="sigma-graph">
-		<!--This is where the graph goes-->
+	<nav>
+		<div class="nav-wrapper">
+			<div class="container">
+				<a href="index.html" class="brand-logo center"><span id="sfn-title">Society <span>for</span> Neuroscience</span> Montreal Chapter</a>
+				<a data-activates="filters" class="button waves-effect waves-light circle">
+					<i class="material-icons">search</i>
+				</a>
+			</div>
+			<ul id="filters" class="side-nav">
+				<li><h4>Filter</h4></li>
+				<li class="search">
+					<div class="input-field">
+						<i class="material-icons prefix">search</i>
+						<input id="nameSearch" type="text">
+						<label for="nameSearch">By researcher name</label>
+					</div>
+				</li>
+				<li>
+					<div class="input-field">
+						<select id="affilSelect">
+							<option value="" selected>By affliation</option>
+						</select>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div id=graph-container>
+		<div id="sigma-graph">
+			<!--This is where the graph goes-->
+		</div>
 	</div>
-</div>
+	<footer class="footer">
+		<div class="container">
+			<span>This is a BETA release</span>
+		</div>
+	</footer>
 
 </body>
 
-<footer class="footer">
-	<div class="container">
-		<span>This is a BETA release</span>
-	</div>
-</footer>
-
-<!-- MATERIALIZE -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- START SIGMA IMPORTS -->
 <script src="lib/sigmajs/src/sigma.core.js"></script>
@@ -95,14 +105,15 @@
 <script src="lib/sigmajs/src/misc/sigma.misc.bindDOMEvents.js"></script>
 <script src="lib/sigmajs/src/misc/sigma.misc.drawHovers.js"></script>
 <!-- END SIGMA IMPORTS -->
-<script src="libsigmajs/plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
-<script src="libsigmajs/plugins/sigma.plugins.filter/sigma.plugins.filter.js"></script>
-<script src="libsigmajs/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js"></script>
+<script src="lib/sigmajs/plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
+<script src="lib/sigmajs/plugins/sigma.plugins.filter/sigma.plugins.filter.js"></script>
+<script src="lib/sigmajs/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js"></script>
 
 <script>
 
 	//$('#instruction-modal').modal('show');
 	$(".button").sideNav();
+	     
 
 	var filter, dragListener;
 	window.s = new sigma({ 
@@ -222,6 +233,7 @@
 		}
 
 		$("#affilSelect").on("change", applyCategoryFilter);
+		$("#affilSelect").material_select();
 		$("#nameSearch").on("keyup keypress", function(e) {
 			var keyCode = e.keyCode || e.which;
 			if (keyCode === 13) {

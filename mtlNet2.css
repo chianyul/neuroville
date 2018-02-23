@@ -27,9 +27,9 @@ nav {
 }
 
 #filters {
-	/* background-color: #104b7d; */
+	background-color: rgba(16,75,125,0.7);
+	padding: 1em;
 	min-width: 400px;
-	color: #000;
 }
 
 #sigma-graph {
