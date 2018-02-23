@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Neurovill Montreal Neuroscience Network</title>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-	<link rel="stylesheet" href="mtlNet2.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="Chianyu Liu">
 	<link rel="icon" href="data/sfn.ico">
 
-	<!-- MATERIALIZE -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<title>Neuroville Montreal Neuroscience Network</title>
+
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="mtlNet2.css">
 </head>
 
 <body>
@@ -48,15 +50,34 @@
 			<!--This is where the graph goes-->
 		</div>
 	</div>
+
+	<div id="instruction-modal" class="modal">
+		<div class="modal-content">
+			<h4>Welcome</h4>
+			<p>
+				Note: this is a BETA release.<br>
+				<br>
+				<strong>Sroll</strong> up or down to zoom in and out<br>
+				<strong>Double click</strong> to zoom in<br>
+				<strong>Hover</strong> over a node to see label<br>
+				<strong>Drag</strong> and <strong>drop</strong> to move node<br>
+				<br>
+				For options to search by name or affliation, click <i class="material-icons">search</i> on top left corner of the page.
+			</p>
+		</div>
+	</div>
+
 	<footer class="footer">
 		<div class="container">
 			<span>This is a BETA release</span>
 		</div>
 	</footer>
-
 </body>
 
-
+<!-- MATERIALIZE -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	
 <!-- START SIGMA IMPORTS -->
 <script src="lib/sigmajs/src/sigma.core.js"></script>
 <script src="lib/sigmajs/src/conrad.js"></script>
@@ -111,9 +132,12 @@
 
 <script>
 
-	//$('#instruction-modal').modal('show');
-	$(".button").sideNav();
-	     
+	$(document).ready(function(){
+		$('.modal').modal();
+		$('#instruction-modal').modal('open');
+		$(".button").sideNav();
+	});
+
 
 	var filter, dragListener;
 	window.s = new sigma({ 
