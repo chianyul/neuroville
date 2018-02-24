@@ -1,18 +1,12 @@
 html {
 	font-family: "Roboto", sans serif;
 	font-weight: 300;
+
+	overflow: hidden;
 }
 
 nav {
 	background-color: #104b7d;
-}
-
-@media only screen and (max-width: 992px) {
-	nav .brand-logo.center {
-		left: 40%;
-		webkit-transform: translateX(-40%);
-		transform: translateX(-40%);
-	}
 }
 
 #sfn-title {
@@ -26,17 +20,8 @@ nav {
 	font-style: italic;
 }
 
-/*
-body {
-	background-image: url("data/netGraph.jpg");
-	background-repeat: no-repeat, no-repeat;
-	background-color: #fff;
-	background-size: cover;
-}
-*/
 #netGraph {
-	/* position: absolute; */
-	max-width: 100%;
+	overflow: hidden;
 	text-align: center;
 }
 
@@ -74,4 +59,32 @@ body {
 
 .footer .container {
 	text-align: center;
+}
+
+
+.desktop {
+	display: block;
+}
+
+.mobile {
+	display: none;
+}
+
+@media only screen and (max-width: 480px) {
+	.desktop {
+		display: none;
+	}
+
+	.mobile {
+		display: block;
+	}
+
+	#netGraph {
+
+	}
+
+	#netGraph img {
+		height: 100%;
+		max-width: none;
+	}
 }

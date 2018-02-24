@@ -7,14 +7,6 @@ nav {
 	background-color: #104b7d;
 }
 
-@media only screen and (max-width: 992px) {
-	nav .brand-logo.center {
-		left: 40%;
-		webkit-transform: translateX(-40%);
-		transform: translateX(-40%);
-	}
-}
-
 #sfn-title {
 	font-family: "Times New Roman", Times, serif;
 	font-variant: small-caps;
@@ -29,7 +21,7 @@ nav {
 #filters {
 	background-color: rgba(16,75,125,0.7);
 	padding: 1em;
-	min-width: 400px;
+	max-width: 80%;
 }
 
 #sigma-graph {
@@ -60,4 +52,22 @@ nav {
 
 .footer .container {
 	text-align: center;
+}
+
+.desktop {
+	display: block;
+}
+
+.mobile {
+	display: none;
+}
+
+@media only screen and (max-width: 480px) {
+	.desktop {
+		display: none;
+	}
+
+	.mobile {
+		display: block;
+	}
 }
