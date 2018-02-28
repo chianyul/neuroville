@@ -2,9 +2,11 @@
 	// The message
 	$name = $_POST['name'];
 	//$emailTo = "qianyu.liu@mail.mcgill.ca";
-	$emailTo = "chainyu.liu@outlook.com";
+	$emailTo = "chianyu.liu@outlook.com";
 	$emailFrom = $_POST['email'];
+	//$emailFrom = "testFrom";
 	$subject = "Feedback Test from $emailFrom";
 	$message = $_POST['message'];
-	mail($to, $subject, $message);
+	//$message = "testMessage";
+	@mail($to, $subject, $message);
 ?>

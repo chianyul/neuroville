@@ -25,7 +25,7 @@
 	</nav>
 
 	<div class="container">
-		<p>Welcome! <a href="sfn.org">Society for Neuroscience (SfN)</a> is a profession society for researchers whose interests lies in the study of the brain and nervous system. Come and explore the society for neuroscience research community in Montreal!</p>
+		<p>Welcome! <a href="sfn.org">Society for Neuroscience (SfN)</a> is a professional society for researchers whose interests lies in the study of the brain and nervous system. Come and explore the society for neuroscience research community in Montreal!</p>
 
 		<div id=netGraph> 
 			<img src="data/netGraph.jpg" alt="Network Graph">
@@ -40,39 +40,39 @@
 	</div>
 
 	<div id="contact-modal" class="modal modal-fixed-footer">
+		<form class="col s12" method="post" action="feedbackMail.php">
 			<div class="modal-content">
 				<h4>Contact Us</h4>
-				<p>Words about things</p>
+				<p>We appreciate all feedbacks!</p>
+				
 				<div class="row">
-					<form class="col s12">
-						<div class="row">
-							<div class="input-field col s12">
-								<i class="material-icons prefix">account_box</i>
-								<input id="contact-name" type="text" class="validate">
-								<label for="contact-name">Full Name</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12">
-								<i class="material-icons prefix">email</i>
-								<input id="contact-email" type="email" class="validate">
-								<label for="contact-email">Email</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12">
-								<i class="material-icons prefix">mode_edit</i>
-								<textarea id="contact-message" class="materialize-textarea"></textarea>
-								<label for="contact-message">Message</label>
-							</div>
-						</div>
-					</form>
+					<div class="input-field col s12">
+						<i class="material-icons prefix">account_box</i>
+						<input id="contact-name" name="name" type="text" class="validate" placeholder="Name">								
+					</div>
 				</div>
+
+				<div class="row">
+					<div class="input-field col s12">
+						<i class="material-icons prefix">email</i>
+						<input id="contact-email" name="email" type="email" class="validate" placeholder="Email">
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="input-field col s12">
+						<i class="material-icons prefix">mode_edit</i>
+						<textarea id="contact-message" name="message" class="materialize-textarea"></textarea>
+						<label for="contact-message">Message</label>
+					</div>
+				</div>
+			
 			</div>
 			<div class="modal-footer">
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Send</a>
+				<input type="submit" class="modal-action modal-close waves-effect waves-green btn-flat ">
 			</div>
-		</div>
+		</form>
+	</div>
 
 	<footer class="footer">
 		<div class="container">
